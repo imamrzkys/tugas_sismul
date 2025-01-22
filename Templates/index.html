@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="id">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>Toko Mochi Lily</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Mulai Main Top -->
+    <div class="main-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="custom-select-box">
+                        <select id="basic" class="selectpicker show-tick form-control" data-placeholder="IDR">
+                            <option>IDR</option>
+                            <option>USD</option>
+                            <option>EUR</option>
+                        </select>
+                    </div>
+                    <div class="right-phone-box">
+                        <p>Hubungi Kami :+ <a href="#"> 62 831 7623 5143</a></p>
+                    </div>
+                    <div class="our-link">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-user s_color"></i> Profil</a></li>
+                            <li><a href="#"><i class="fas fa-location-arrow"></i> Lokasi</a></li>
+                            <li><a href="{{ url_for('contact') }}"><i class="fas fa-headset"></i> Kontak</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="login-box">
+                        <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Masuk">
+                            <option>Daftar Disini</option>
+                            <option>Masuk</option>
+                        </select>
+                    </div>
+                    <div class="text-slid-box">
+                        <div id="offer-box" class="carouselTicker">
+                            <ul class="offer-box">
+                                <li>
+                                    <i class="fab fa-opencart"></i> 20% off Semua Pembelian! Gunakan kode promo: MOCHI20
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> Diskon hingga 50% untuk Mochi Pilihan!
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> Potongan 10%! Belanja Mochi Sekarang
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> Diskon 30% untuk Pembelian di Atas Rp100.000
+                                </li>
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> Gratis Ongkir untuk Pesanan Mochi di Kota Anda!
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> Promo Spesial! Beli 1 Gratis 1 untuk Mochi Favorit Anda
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> Diskon Tambahan 10% dengan Kode: LILY10
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> Hemat hingga 70%! Jangan Lewatkan Promo Mochi
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Main Top -->
+
+    <!-- Mulai Main Top -->
+    <header class="main-header">
+        <!-- Mulai Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Mulai Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                    <a class="navbar-brand" href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" alt=""></a>
+                </div>
+                <!-- Akhir Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item active"><a class="nav-link" href="/">Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">Tentang Kami</a></li>
+                        <li class="dropdown">
+                            <a href="{{ url_for('shop') }}" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">TOKO</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for('cart') }}">Keranjang</a></li>
+                                <li><a href="{{ url_for('checkout') }}">Pembayaran</a></li>
+                                <li><a href="{{ url_for('my_account') }}">Akun Saya</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+                <!-- Mulai Atribute Navigation -->
+                <div class="attr-nav">
+                    <ul>
+                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                        <li class="side-menu">
+                            <a href="#">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span class="badge">3</span>
+                                <p>Keranjang Saya</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Akhir Atribute Navigation -->
+            </div>
+            <!-- Start Side Menu -->
+            <div class="side">
+                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+                <li class="cart-box">
+                    <ul class="cart-list">
+                        <li>
+                            <a href="#" class="photo"><img src="{{ url_for('static', filename='images/img-pro-01.jpg') }}" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Mochi Matcha Pandan</a></h6>
+                            <p>1x - <span class="price">Rp10.000</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="{{ url_for('static', filename='images/img-pro-02.jpg') }}" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Mochi Choco Lava</a></h6>
+                            <p>1x - <span class="price">Rp5.000</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="{{ url_for('static', filename='images/img-pro-03.jpg') }}" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Mochi Oreo</a></h6>
+                            <p>1x - <span class="price">Rp5.000</span></p>
+                        </li>
+                        <li class="total">
+                            <a href="#" class="btn btn-default hvr-hover btn-cart">LIHAT KERANJANG</a>
+                            <span class="float-right"><strong>Total</strong>: Rp45.000</span>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+            <!-- End Side Menu -->
+        </nav>
+        <!-- Akhir Navigation -->
+    </header>
+    <!-- Akhir Main Top -->
+
+    <!-- Mulai Top Search -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Cari">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Top Search -->
+
+    <!-- Mulai Slider -->
+    <div id="slides-shop" class="cover-slides">
+        <ul class="slides-container">
+            <li class="text-center">
+                <img src="{{ url_for('static', filename='images/banner-01.jpg') }}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Selamat Datang Di <br> Mochi Lily</strong></h1>
+                            <p class="m-b-40">Rasakan kelembutan istimewa mochi yang meleleh di mulut.<br>Lezat, menggoda, dan dijamin bikin nagih!</p>
+                            <p><a class="btn hvr-hover" href="{{ url_for('shop') }}">Pesan Mochi Sekarang!</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="text-center">
+                <img src="{{ url_for('static', filename='images/banner-02.jpg') }}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Kelembutan Mochi <br> Keistimewaan Rasa!</strong></h1>
+                            <p class="m-b-40">Mochi Lily dibuat dengan cinta, menghadirkan tekstur lembut dan rasa yummy dalam setiap gigitan.<br>Dari klasik hingga rasa unik, semua ada di sini!</p>
+                            <p><a class="btn hvr-hover" href="{{ url_for('shop') }}">Pesan Mochi Sekarang!</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="text-center">
+                <img src="{{ url_for('static', filename='images/banner-03.jpg') }}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Lezat dan Istimewa <br> Untuk Semua Momen!</strong></h1>
+                            <p class="m-b-40">Temani harimu dengan mochi favoritmu.<br>Cemilan lembut ini siap membuat momen santaimu jadi lebih spesial.</p>
+                            <p><a class="btn hvr-hover" href="{{ url_for('shop') }}">Pesan Mochi Sekarang!</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="slides-navigation">
+            <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <!-- Akhir Slider -->
+
+    <!-- Mulai Categories  -->
+    <div class="categories-shop">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="{{ url_for('static', filename='images/categories_img_01.jpg') }}" alt="" />
+                        <a class="btn hvr-hover" href="{{ url_for('shop') }}">Mochi Isi Buah</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="{{ url_for('static', filename='images/categories_img_02.jpg') }}" alt="" />
+                        <a class="btn hvr-hover" href="{{ url_for('shop') }}">Mochi Tusuk</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="{{ url_for('static', filename='images/categories_img_03.jpg') }}" alt="" />
+                        <a class="btn hvr-hover" href="{{ url_for('shop') }}">Mochi Original</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Categories -->
+
+    <!-- Mulai Products  -->
+    <div class="products-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>Produk Kami</h1>
+                        <p>Temukan varian rasa unik yang menggoda, dari manis hingga creamy! Pesan sekarang sebelum kehabisan!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="special-menu text-center">
+                        <div class="button-group filter-button-group">
+                            <button class="active" data-filter="*">Semua</button>
+                            <button data-filter=".top-featured">Unggulan</button>
+                            <button data-filter=".best-seller">Terlaris</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row special-list">
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Diskon</p>
+                            </div>
+                            <img src="{{ url_for('static', filename='images/img-pro-01.jpg') }}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Lihat"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Bandingkan"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Tambah ke Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="{{ url_for('shop') }}">Tambah ke Keranjang</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Pandan Matcha</h4>
+                            <h5>Rp. 10.000</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="new">Baru</p>
+                            </div>
+                            <img src="{{ url_for('static', filename='images/img-pro-02.jpg') }}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Lihat"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Bandingkan"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Tambah ke Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="{{ url_for('shop') }}">Tambah ke Keranjang</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Choco Lava</h4>
+                            <h5>Rp. 5.000</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Diskon</p>
+                            </div>
+                            <img src="{{ url_for('static', filename='images/img-pro-03.jpg') }}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Lihat"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Bandingkan"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Tambah ke Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="{{ url_for('shop') }}">Tambah ke Keranjang</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Oreo Cream Cheese</h4>
+                            <h5>Rp. 5.000</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Diskon</p>
+                            </div>
+                            <img src="{{ url_for('static', filename='images/img-pro-04.jpg') }}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Lihat"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Bandingkan"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Tambah ke Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="{{ url_for('shop') }}">Tambah ke Keranjang</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Manggo Delight</h4>
+                            <h5>Rp. 10.000</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Products  -->
+
+    <!-- Mulai Blog  -->
+    <div class="latest-blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>Dunia Mochi: Info, Tips, dan Resep</h1>
+                        <p>"Temukan segalanya tentang mochi di sini! Mulai dari fakta menarik, tips penyimpanan, hingga resep mochi yang bisa kamu coba di rumah. Jadikan mochi sebagai bagian dari momen manismu bersama Mochi Lily!"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 col-xl-4">
+                    <div class="blog-box">
+                        <div class="blog-img">
+                            <img class="img-fluid" src="{{ url_for('static', filename='images/blog-img.jpg') }}" alt="" />
+                        </div>
+                        <div class="blog-content">
+                            <div class="title-blog">
+                                <h3>5 Fakta Unik Tentang Mochi yang Wajib Kamu Tahu!</h3>
+                                <p>Mochi adalah camilan manis khas Jepang yang telah mendunia. Tapi, tahukah kamu bahwa di balik kelembutannya, ada banyak fakta menarik? Yuk, simak fakta unik tentang mochi! 
+                                    1.Asal Usul Mochi
+                                    2.Bahan Utama yang Unik
+                                    3.Proses Tradisional yang Menakjubkan
+                                    4.Variasi Rasa yang Tak Terbatas
+                                    5.Simbol Persahabatan dan Kehangatan.
+                                    Tertarik mencoba mochi dengan rasa unik dan berkualitas? Kunjungi Mochi Lily Shop dan temukan berbagai pilihan mochi dengan rasa yang menggugah selera!
+                                    </p>
+                            </div>
+                            <ul class="option-blog">
+                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#"><i class="far fa-comments"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-4">
+                    <div class="blog-box">
+                        <div class="blog-img">
+                            <img class="img-fluid" src="{{ url_for('static', filename='images/blog-img-01.jpg') }}" alt="" />
+                        </div>
+                        <div class="blog-content">
+                            <div class="title-blog">
+                                <h3>Inspirasi Rasa Baru Mochi Lily: Perpaduan Tradisional dan Modern</h3>
+                                <p>Mochi Lily selalu berinovasi! Kami hadir dengan rasa-rasa baru yang memadukan cita rasa tradisional dengan sentuhan modern. Apa saja? Simak di sini!
+                                    1.Mochi Matcha Latte
+                                    2.Mochi Red Velvet Cheesecake
+                                    3.Mochi Durian Legit
+                                    4.Mochi Oreo Crunch
+                                    Tidak hanya itu, Mochi Lily juga menyediakan berbagai rasa unik yang siap membuat hari-harimu lebih menyenangkan. Jangan lewatkan kesempatan untuk mencicipi rasa-rasa baru yang menggugah selera!
+                                </p>
+                            </div>
+                            <ul class="option-blog">
+                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#"><i class="far fa-comments"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-4">
+                    <div class="blog-box">
+                        <div class="blog-img">
+                            <img class="img-fluid" src="{{ url_for('static', filename='images/blog-img-02.jpg') }}" alt="" />
+                        </div>
+                        <div class="blog-content">
+                            <div class="title-blog">
+                                <h3>Rahasia di Balik Lembutnya Mochi Lily yang Wajib Kamu Tahu!</h3>
+                                <p>Apa sih yang membuat mochi dari Mochi Lily begitu lembut dan nikmat? Kami punya rahasianya! Yuk, temukan di sini. 
+                                    1.Tepung Ketan Berkualitas Tinggi
+                                    2.Isian dengan Bahan Pilihan
+                                    3.Proses Pembuatan yang Teliti
+                                    4.Tanpa Pengawet Berbahaya
+                                    
+                                    Ingin mencicipi mochi yang lembut dan sehat? Pesan sekarang di Mochi Lily Shop dan buktikan kelezatannya!</p>
+                            </div>
+                            <ul class="option-blog">
+                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#"><i class="far fa-comments"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Blog  -->
+
+    <!-- Mulai Instagram Feed  -->
+    <div class="instagram-box">
+        <div class="main-instagram owl-carousel owl-theme">
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-01.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-02.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-03.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-04.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-05.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-06.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-07.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-08.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-09.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-05.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Instagram Feed  -->
+
+        <!-- Start Footer  -->
+        <footer>
+            <div class="footer-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer-top-box">
+                                <h3>Jam Kerja</h3>
+                                <ul class="list-time">
+                                    <li>Senin - Jumat: 08.00 - 17.00</li> <li>Sabtu: 10.00 - 20.00</li> <li>Minggu: <span>Tutup</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer-top-box">
+                                <h3>Buletin</h3>
+                                <form class="newsletter-box">
+                                    <div class="form-group">
+                                        <input class="" type="email" name="Email" placeholder="Alamat Email*" />
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                    <button class="btn hvr-hover" type="submit">Kirim</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer-top-box">
+                                <h3>Media Sosial</h3>
+                                <p>Temukan kami di media sosial.</p>
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer-widget">
+                                <h4>Tentang Mochi Lily Shop</h4>
+                                <p>Mochi Lily adalah toko online terpercaya yang menyediakan berbagai produk mochi berkualitas tinggi. Kami berkomitmen memberikan pengalaman belanja terbaik dengan produk-produk pilihan dan layanan prima.</p> 
+                                <p>Temukan kelezatan mochi yang membuat Anda ketagihan di Mochi Lily.</p> 							
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer-link">
+                                <h4>Informasi</h4>
+                                <ul>
+                                    <li><a href="#">Tentang Kami</a></li>
+                                    <li><a href="#">Layanan Pelanggan</a></li>
+                                    <li><a href="#">Peta Situs</a></li>
+                                    <li><a href="#">Syarat &amp; Ketentuan</a></li>
+                                    <li><a href="#">Kebijakan Privasi</a></li>
+                                    <li><a href="#">Informasi Pengiriman</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer-link-contact">
+                                <h4>Hubungi Kami</h4>
+                                <ul>
+                                    <li>
+                                        <p><i class="fas fa-map-marker-alt"></i>Alamat: Sukamahi RT 05 RW 06 <br>Ds. SagaraCipta,Kec. Ciparay<br> Kabupaten Bandung, Jawa Barat 40551 </p>
+                                    </li>
+                                    <li>
+                                        <p><i class="fas fa-phone-square"></i>Telepon: <a href="tel:+62-831-7623-5143">+62-831-7623-5143</a></p>
+                                    </li>
+                                    <li>
+                                        <p><i class="fas fa-envelope"></i>Email: <a href="mailto:kontak@freshshop.com">MochililyShop@gmail.com</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer  -->
+    
+    <!-- Start copyright  -->
+    <div class="footer-copyright">
+        <p class="footer-company">All Rights Reserved. &copy; 2025 <a href="#">MochililyShop</a> Design By :
+            <a href="https://html.design/">html design</a></p>
+    </div>
+    <!-- End copyright  -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="../static/js/jquery.superslides.min.js"></script>
+    <script src="../static/js/bootstrap-select.js"></script>
+    <script src="../static/js/inewsticker.js"></script>
+    <script src="../static/js/bootsnav.js."></script>
+    <script src="../static/js/images-loded.min.js"></script>
+    <script src="../static/js/isotope.min.js"></script>
+    <script src="../static/js/owl.carousel.min.js"></script>
+    <script src="../static/js/baguetteBox.min.js"></script>
+    <script src="../static/js/form-validator.min.js"></script>
+    <script src="../static/js/contact-form-script.js"></script>
+    <script src="../static/js/custom.js"></script>
+</body>
+
+</html>
